@@ -9,7 +9,7 @@ prueba.getDataAll = async(result) => {
 
     let sqlQuery = `SELECT 
                         E.Name,
-                        S.Name
+                        S.Name AS Status
                     FROM 
                         employee AS E
                     JOIN status AS S
@@ -43,7 +43,7 @@ prueba.getDataId = async(req,result) => {
 
     let sqlQuery = `SELECT
                         E.Name,
-                        S.Name
+                        S.Name AS Status
                     FROM 
                         employee AS E
 
