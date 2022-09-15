@@ -4,8 +4,6 @@
   "description": "Api desarrollada para el sistema de solicitudes",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir build",
-    "dev": "nodemon src/index.js --exec babel-node",
     "start": "node build/index.js"
   },
   "author": "Sebastian Alvarado",
