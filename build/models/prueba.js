@@ -38,7 +38,7 @@ prueba.getDataAll = /*#__PURE__*/function () {
 
           case 2:
             currentConnection = _context.sent;
-            sqlQuery = "SELECT\n                        E.*\n                    FROM \n                        employee AS E";
+            sqlQuery = "SELECT \n                        E.Name,\n                        S.Name AS Status\n                    FROM \n                        employee AS E\n                    JOIN status AS S\n                    ON E.Status = S.Id";
             _context.next = 6;
             return currentConnection.promise().query(sqlQuery).then(function (_ref2) {
               var _ref3 = _slicedToArray(_ref2, 2),
@@ -90,7 +90,7 @@ prueba.getDataId = /*#__PURE__*/function () {
 
           case 2:
             currentConnection = _context2.sent;
-            sqlQuery = "SELECT\n                        E.*\n                    FROM \n                        employee AS E\n                    WHERE \n                        E.Id = ".concat(req.empleadoId, " ");
+            sqlQuery = "SELECT\n                        E.Name,\n                        S.Name AS Status\n                    FROM \n                        employee AS E\n\n                    JOIN status AS S\n                    ON E.Status = S.Id\n\n                    WHERE \n                        E.Id = ".concat(req.empleadoId, " ");
             _context2.next = 6;
             return currentConnection.promise().query(sqlQuery).then(function (_ref5) {
               var _ref6 = _slicedToArray(_ref5, 2),
