@@ -7,10 +7,13 @@ prueba.getDataAll = async(result) => {
     
     let currentConnection = await dbConnection.connectDb();
 
-    let sqlQuery = `SELECT
-                        E.*
+    let sqlQuery = `SELECT 
+                        E.Name,
+                        S.Name
                     FROM 
-                        employee AS E`;
+                        employee AS E
+                    JOIN status AS S
+                    ON E.Status = S.Id`;
 
     await currentConnection.promise().query(sqlQuery)
     .then( ([response,fields]) => {
@@ -39,9 +42,14 @@ prueba.getDataId = async(req,result) => {
     let currentConnection = await dbConnection.connectDb();
 
     let sqlQuery = `SELECT
-                        E.*
+                        E.Name,
+                        S.Name
                     FROM 
                         employee AS E
+
+                    JOIN status AS S
+                    ON E.Status = S.Id
+
                     WHERE 
                         E.Id = ${req.empleadoId} `;
 
